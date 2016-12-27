@@ -12,7 +12,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using APISamples.TokenStorage;
-using Resources;
 using Microsoft.Graph;
 
 namespace APISamples.Helpers
@@ -66,7 +65,7 @@ namespace APISamples.Helpers
         throw new ServiceException(
     new Error {
       Code = GraphErrorCode.AuthenticationFailure.ToString(),
-      Message = Resource.Error_AuthChallengeNeeded,
+      Message = "Error_AuthChallengeNeeded",
     });
       }
     }

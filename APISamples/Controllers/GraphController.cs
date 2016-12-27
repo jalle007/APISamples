@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using APISamples.Helpers;
 using APISamples.Models;
-using Resources;
 using Microsoft.Graph;
 
 namespace APISamples.Controllers
@@ -36,8 +35,8 @@ namespace APISamples.Controllers
         ViewBag.Email = await graphService.GetMyEmailAddress(graphClient);
         return View("Index");
       } catch (ServiceException se) {
-        if (se.Error.Message == Resource.Error_AuthChallengeNeeded) return new EmptyResult();
-        return RedirectToAction("Index", "Error", new { message = Resource.Error_Message + Request.RawUrl + ": " + se.Error.Message });
+        if (se.Error.Message == "AuthChallengeNeeded") return new EmptyResult();
+        return RedirectToAction("Index", "Error", new { message ="Error_Message" + Request.RawUrl + ": " + se.Error.Message });
       }
     }
 
@@ -45,7 +44,7 @@ namespace APISamples.Controllers
     // Send mail on behalf of the current user.
     public async Task<ActionResult> SendEmail() {
       if (string.IsNullOrEmpty(Request.Form["email-address"])) {
-        ViewBag.Message = Resource.Graph_SendMail_Message_GetEmailFirst;
+        ViewBag.Message = "Graph_SendMail_Message_GetEmailFirst";
         return View("Index");
       }
 
@@ -61,11 +60,11 @@ namespace APISamples.Controllers
 
         // Reset the current user's email address and the status to display when the page reloads.
         ViewBag.Email = Request.Form["email-address"];
-        ViewBag.Message = Resource.Graph_SendMail_Success_Result;
+        ViewBag.Message = "Graph_SendMail_Success_Result";
         return View("Index");
       } catch (ServiceException se) {
-        if (se.Error.Message == Resource.Error_AuthChallengeNeeded) return new EmptyResult();
-        return RedirectToAction("Index", "Error", new { message = Resource.Error_Message + Request.RawUrl + ": " + se.Error.Message });
+        if (se.Error.Message == "Error_AuthChallengeNeeded") return new EmptyResult();
+        return RedirectToAction("Index", "Error", new { message ="Error_Message" + Request.RawUrl + ": " + se.Error.Message });
       }
     }
 

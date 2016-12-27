@@ -233,4 +233,3 @@ D:\Projects\test2\APISamples\APISamples\bin\Zlib.Portable.xml
 D:\Projects\test2\APISamples\APISamples\obj\Debug\APISamples.csproj.App.config
 D:\Projects\test2\APISamples\APISamples\obj\Debug\APISamples.dll
 D:\Projects\test2\APISamples\APISamples\obj\Debug\APISamples.pdb
-D:\Projects\test2\APISamples\APISamples\obj\Debug\APISamples.csprojResolveAssemblyReference.cache

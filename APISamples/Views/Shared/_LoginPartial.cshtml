@@ -1,8 +1,4 @@
-﻿<!--  Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
-        See LICENSE in the source repository root for complete license information. -->
-
-@using Resources
-
+﻿
 @if (Request.IsAuthenticated)
 {
     <text>
@@ -12,7 +8,7 @@
                 Hello, @(System.Security.Claims.ClaimsPrincipal.Current.FindFirst("preferred_username")?.Value)
             </li>
             <li>
-                @Html.ActionLink(Resource.SignOut, "SignOut", "Account")
+                @Html.ActionLink("SignOut", "SignOut", "Account")
             </li>
         </ul>
     </text>
@@ -41,7 +37,7 @@ else
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="@Url.Action("SignIn", "Account")" title="Sign in" class="links">
-                @Resource.SignIn
+                SignIn
             </a>
         </li>
     </ul>

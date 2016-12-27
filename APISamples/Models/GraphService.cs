@@ -3,7 +3,6 @@
 *  See LICENSE in the source repository root for complete license information. 
 */
 
-using Resources;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -47,7 +46,7 @@ namespace APISamples.Models
       // Build the email message.
       Message email = new Message {
         Body = new ItemBody {
-          Content = Resource.Graph_SendMail_Body_Content,
+          Content = "Graph_SendMail_Body_Content",
           ContentType = BodyType.Html,
         },
         Subject = subject,
