@@ -1,0 +1,38 @@
+ @using Resources
+
+ 
+
+<h2>@Resource.EWSAPI</h2>
+ 
+ 
+<div class="col-sm-12">
+  <label for="user-email-address">@Resource.Graph_GetEmailAddress_Results_Label</label>
+  <pre name="user-email-address">@ViewBag.Email</pre>
+  <p>Credentials are retrieved from server environment variable.</p>
+</div>
+
+<div class="col-sm-12">
+  <h2>Send an email using EWS API</h2>
+ 
+</div>
+
+  @using (Html.BeginForm("Index", "EWS")) {
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="recipients">Recipient email addresses</label>
+        <input name="recipients" type="text" class="form-control"  />
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject of email</label>
+        <input name="subject" type="text" class="form-control" value="Sent using EWS API"   />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default  ">Send email</button>
+        <input name="email-address"  type="hidden" />
+      </div>
+    </div>
+  }
+  <div class="col-sm-12">
+    <p class="@(ViewBag.Message == null ? "hidden" : null)">@Html.Raw(ViewBag.Message)</p>
+  </div>

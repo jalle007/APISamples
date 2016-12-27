@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Salesforce</h2>
+<h3>In the absence of access to the Salesforce API, I've created an example, Invoice app with line items and total fields.</h3>
+
+<img src="~/Content/sf.png" width="800"/>
+
+<br/>
+@using (Html.BeginForm("Index", "Salesforce", FormMethod.Post)) {<br />
+  <div class="form-group">
+    <button class="btn btn-info">Connect to Salesforce API</button>
+  </div>
+}
+<br/>
+Result: @ViewBag.result;

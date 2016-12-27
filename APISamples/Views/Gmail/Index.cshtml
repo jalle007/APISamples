@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My gmail inbox</h2>
+
+@foreach (var folder in ViewBag.folders) {
+  <li>@folder.Label (@folder.Count)</li>
+}
+
+@using (Html.BeginForm("Index", "Gmail"))
+{<br/>
+  <div class="form-group">
+    <button class="btn btn-info">Refresh</button>
+  </div>
+}
